@@ -15,19 +15,17 @@
 
 #### Week 02: Preliminary
 
-- Lecture: Pattern recognition; curve fitting; probabilities; inference; decision; entropy and information
+- Lecture: Pattern recognition; curve fitting; probabilities
 - Lab: [Adult Census Income](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab02_Exercise.ipynb)
 - [Assignments](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Assignments/Assignment01_Preliminary)
   - Writing assignment 01
   - Program assignment: curve fitting
 
-#### Week 03: Probability Distributions
+#### Week 03: Preliminary
 
-- Lecture: Binary; multinomial; Gaussian; exponential families, KNN
+- Lecture: Inference; decision; entropy and information
 - Lab: [Naive-Bayes-based Spam Email Classification](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab03_Exercise.ipynb)
 - Assignments
   - Writing assignment 02
   - Program assignment: KNN breast cancer prediction
-
-### 
 
