@@ -40,3 +40,8 @@
 - [Assignment Ⅱ](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Assignments/Assignment02_Distributions)
   - Writing assignment 02
   - Program assignment: KNN breast cancer prediction
+
+#### Week 06: Linear Models for Regression Ⅰ
+
+- Lecture: KNN; Linear basis; Maximum Likelihood and Least Squares; Bias Variance Decomposition; Bayesian linear regression; predictive distribution.
+- Lab:  [LDA-based Handwritten Number Recognition](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab06_Exercise.ipynb)
