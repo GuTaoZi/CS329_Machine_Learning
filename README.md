@@ -37,7 +37,7 @@
 
 - Lecture: Gaussian distributions; exponential family.
 - Lab: [Decision Tree/Ensemble Learning-based Iris Classification](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab05_Exercise.ipynb)
-- [Assignment Ⅱ](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Assignments/Assignment02_Distributions)
+- [Assignment Ⅱ](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Assignments/Assignment02_Distributions_1)
   - Written assignment 02
   - Program assignment: KNN breast cancer prediction
 
@@ -56,7 +56,7 @@
 
 - Lecture: Perceptrons; generative Gaussian models; Bayesian Gaussian models; logistic regression; Bayesian logistic regression.
 - Lab:  [CNN-based Image Classifier for CIFAR10 Dataset](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab07_Exercise.ipynb)
-- [Assignment Ⅲ]()
+- [Assignment Ⅲ](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Assignments/Assignment03_Distributions_2)
   - Written assignment 03
 
 #### Week 09: 
