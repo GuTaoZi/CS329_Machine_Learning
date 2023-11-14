@@ -61,4 +61,5 @@
 
 #### Week 09: 
 
-- Quiz 2
+- [Quiz 2](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Quizzes/CS329_Quiz_2.md)
+- Lecture: Feedforward network; network training; BP; Jacobian and Hessian; regularization
