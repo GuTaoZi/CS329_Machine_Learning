@@ -59,7 +59,7 @@
 - [Assignment Ⅲ](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Assignments/Assignment03_Distributions_2)
   - Written assignment 03
 
-#### Week 09: 
+#### Week 09: Neural Networks Ⅰ
 
 - [Quiz 2](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Quizzes/CS329_Quiz_2.md)
 - Lecture: Feedforward network; network training; BP; Jacobian and Hessian; regularization
