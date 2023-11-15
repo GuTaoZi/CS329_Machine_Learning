@@ -13,7 +13,7 @@
 #### Week 01: Introduction
 
 - Lecture: Course information and grading policy; AI; optimization; machine learning.
-- Lab: Environment configuration
+- Lab: [Environment configuration](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Materials/Lab01_Introduction)
 
 #### Week 02: Preliminary Ⅰ
 
@@ -55,7 +55,7 @@
 #### Week 08: Linear Models for Classification Ⅱ
 
 - Lecture: Perceptrons; generative Gaussian models; Bayesian Gaussian models; logistic regression; Bayesian logistic regression.
-- Lab:  [CNN-based Image Classifier for CIFAR10 Dataset](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab07_Exercise.ipynb)
+- Lab:  [CNN-based Image Classifier for CIFAR10 Dataset](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab08_Exercise.ipynb)
 - [Assignment Ⅲ](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Assignments/Assignment03_Distributions_2)
   - Written assignment 03
 
@@ -63,3 +63,4 @@
 
 - [Quiz 2](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Quizzes/CS329_Quiz_2.md)
 - Lecture: Feedforward network; network training; BP; Jacobian and Hessian; regularization
+- Lab: [Object Detection and Tracking](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Materials/Lab09.Object Detection and Tracking)
