@@ -63,4 +63,4 @@
 
 - [Quiz 2](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Quizzes/CS329_Quiz_2.md)
 - Lecture: Feedforward network; network training; BP; Jacobian and Hessian; regularization
-- Lab: [Object Detection and Tracking](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Materials/Lab09.Object Detection and Tracking)
+- Lab: [Object Detection and Tracking](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Materials/Lab09.Object%20Detection%20and%20Tracking)
