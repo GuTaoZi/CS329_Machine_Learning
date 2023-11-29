@@ -12,13 +12,29 @@ from sklearn.preprocessing import StandardScaler
 from descriptor import Descriptor
 
 
-def processFiles(pos_dir, neg_dir, recurse=False, output_file=False,
-                 output_filename=None, color_space="bgr", channels=[0, 1, 2],
-                 hog_features=False, hist_features=False, spatial_features=False,
-                 hog_lib="cv", size=(64, 64), hog_bins=9, pix_per_cell=(8, 8),
-                 cells_per_block=(2, 2), block_stride=None, block_norm="L1",
-                 transform_sqrt=True, signed_gradient=False, hist_bins=16,
-                 spatial_size=(16, 16)):
+def processFiles(
+    pos_dir,
+    neg_dir,
+    recurse=False,
+    output_file=False,
+    output_filename=None,
+    color_space="bgr",
+    channels=[0, 1, 2],
+    hog_features=False,
+    hist_features=False,
+    spatial_features=False,
+    hog_lib="cv",
+    size=(64, 64),
+    hog_bins=9,
+    pix_per_cell=(8, 8),
+    cells_per_block=(2, 2),
+    block_stride=None,
+    block_norm="L1",
+    transform_sqrt=True,
+    signed_gradient=False,
+    hist_bins=16,
+    spatial_size=(16, 16),
+):
     """
     Extract features from positive samples and negative samples.
     Store feature vectors in a dict and optionally save to pickle file.
@@ -30,7 +46,7 @@ def processFiles(pos_dir, neg_dir, recurse=False, output_file=False,
     @param output_filename (str): Output file filename.
     @param color_space (str): Color space conversion.
     @param channels (list): Image channel indices to use.
-    
+
     For remaining arguments, refer to Descriptor class:
     @see descriptor.Descriptor#__init__(...)
 
@@ -43,8 +59,10 @@ def processFiles(pos_dir, neg_dir, recurse=False, output_file=False,
     """
 
     if not (hog_features or hist_features or spatial_features):
-        raise RuntimeError("No features selected (set hog_features=True, "
-                           + "hist_features=True, and/or spatial_features=True.)")
+        raise RuntimeError(
+            "No features selected (set hog_features=True, "
+            + "hist_features=True, and/or spatial_features=True.)"
+        )
 
     pos_dir = os.path.abspath(pos_dir)
     neg_dir = os.path.abspath(neg_dir)
@@ -56,18 +74,33 @@ def processFiles(pos_dir, neg_dir, recurse=False, output_file=False,
 
     print("Building file list...")
     if recurse:
-        pos_files = [os.path.join(rootdir, file) for rootdir, _, files
-                     in os.walk(pos_dir) for file in files]
-        neg_files = [os.path.join(rootdir, file) for rootdir, _, files
-                     in os.walk(neg_dir) for file in files]
+        pos_files = [
+            os.path.join(rootdir, file)
+            for rootdir, _, files in os.walk(pos_dir)
+            for file in files
+        ]
+        neg_files = [
+            os.path.join(rootdir, file)
+            for rootdir, _, files in os.walk(neg_dir)
+            for file in files
+        ]
     else:
-        pos_files = [os.path.join(pos_dir, file) for file in
-                     os.listdir(pos_dir) if os.path.isfile(os.path.join(pos_dir, file))]
-        neg_files = [os.path.join(neg_dir, file) for file in
-                     os.listdir(neg_dir) if os.path.isfile(os.path.join(neg_dir, file))]
+        pos_files = [
+            os.path.join(pos_dir, file)
+            for file in os.listdir(pos_dir)
+            if os.path.isfile(os.path.join(pos_dir, file))
+        ]
+        neg_files = [
+            os.path.join(neg_dir, file)
+            for file in os.listdir(neg_dir)
+            if os.path.isfile(os.path.join(neg_dir, file))
+        ]
 
-    print("{} positive files and {} negative files found.\n".format(
-        len(pos_files), len(neg_files)))
+    print(
+        "{} positive files and {} negative files found.\n".format(
+            len(pos_files), len(neg_files)
+        )
+    )
 
     # Get color space information.
     color_space = color_space.lower()
@@ -98,10 +131,14 @@ def processFiles(pos_dir, neg_dir, recurse=False, output_file=False,
         cv_color_const = -1
 
     # Get names of desired features.
-    features = [feature_name for feature_name, feature_bool
-                in zip(["HOG", "color histogram", "spatial"],
-                       [hog_features, hist_features, spatial_features])
-                if feature_bool == True]
+    features = [
+        feature_name
+        for feature_name, feature_bool in zip(
+            ["HOG", "color histogram", "spatial"],
+            [hog_features, hist_features, spatial_features],
+        )
+        if feature_bool == True
+    ]
 
     feature_str = features[0]
     for feature_name in features[1:]:
@@ -109,16 +146,22 @@ def processFiles(pos_dir, neg_dir, recurse=False, output_file=False,
 
     # Get information about channel indices.
     if len(channels) == 2 and hog_features and hog_lib == "cv":
-        warnings.warn("OpenCV HOG does not support 2-channel images",
-                      RuntimeWarning)
+        warnings.warn("OpenCV HOG does not support 2-channel images", RuntimeWarning)
 
     channel_index_str = str(channels[0])
     for ch_index in channels[1:]:
         channel_index_str += ", {}".format(ch_index)
 
-    print("Converting images to " + color_space_name + " color space and "
-          + "extracting " + feature_str + " features from channel(s) "
-          + channel_index_str + ".\n")
+    print(
+        "Converting images to "
+        + color_space_name
+        + " color space and "
+        + "extracting "
+        + feature_str
+        + " features from channel(s) "
+        + channel_index_str
+        + ".\n"
+    )
 
     # Store feature vectors for positive samples in list pos_features and
     # for negative samples in neg_features.
@@ -127,13 +170,22 @@ def processFiles(pos_dir, neg_dir, recurse=False, output_file=False,
     start_time = time.time()
 
     # Get feature descriptor object to call on each sample.
-    descriptor = Descriptor(hog_features=hog_features, hist_features=hist_features,
-                            spatial_features=spatial_features, hog_lib=hog_lib, size=size,
-                            hog_bins=hog_bins, pix_per_cell=pix_per_cell,
-                            cells_per_block=cells_per_block, block_stride=block_stride,
-                            block_norm=block_norm, transform_sqrt=transform_sqrt,
-                            signed_gradient=signed_gradient, hist_bins=hist_bins,
-                            spatial_size=spatial_size)
+    descriptor = Descriptor(
+        hog_features=hog_features,
+        hist_features=hist_features,
+        spatial_features=spatial_features,
+        hog_lib=hog_lib,
+        size=size,
+        hog_bins=hog_bins,
+        pix_per_cell=pix_per_cell,
+        cells_per_block=cells_per_block,
+        block_stride=block_stride,
+        block_norm=block_norm,
+        transform_sqrt=transform_sqrt,
+        signed_gradient=signed_gradient,
+        hist_bins=hist_bins,
+        spatial_size=spatial_size,
+    )
 
     # Iterate through files and extract features.
     bar = tqdm.tqdm(total=len(pos_files) + len(neg_files), desc="Convert process")
@@ -154,8 +206,11 @@ def processFiles(pos_dir, neg_dir, recurse=False, output_file=False,
         bar.update()
     bar.close()
 
-    print("Features extracted from {} files in {:.1f} seconds\n".format(
-        len(pos_features) + len(neg_features), time.time() - start_time))
+    print(
+        "Features extracted from {} files in {:.1f} seconds\n".format(
+            len(pos_features) + len(neg_features), time.time() - start_time
+        )
+    )
 
     # Store the length of the feature vector produced by the descriptor.
     num_features = len(pos_features[0])
@@ -173,8 +228,8 @@ def processFiles(pos_dir, neg_dir, recurse=False, output_file=False,
     print("Shuffling samples into training, cross-validation, and test sets.\n")
     random.shuffle(pos_features)
     random.shuffle(neg_features)
-    
-    # Use pos_train, pos_val, pos_test and neg_train, neg_val, neg_test to represent 
+
+    # Use pos_train, pos_val, pos_test and neg_train, neg_val, neg_test to represent
     # the Train, Validation and Test sets of Positive and Negative sets.
     ##########################################Answer Area 2 begin#############################################
     # TODO: Split 75/20/5 into training.
@@ -186,14 +241,14 @@ def processFiles(pos_dir, neg_dir, recurse=False, output_file=False,
     num_pos_val = int(round(0.2 * len(pos_features)))
     num_neg_val = int(round(0.2 * len(neg_features)))
 
-    pos_train = pos_features[0 : num_pos_train]
-    neg_train = neg_features[0 : num_neg_train]
+    pos_train = pos_features[0:num_pos_train]
+    neg_train = neg_features[0:num_neg_train]
 
     pos_val = pos_features[num_pos_train : (num_pos_train + num_pos_val)]
     neg_val = neg_features[num_neg_train : (num_neg_train + num_neg_val)]
 
-    pos_test = pos_features[(num_pos_train + num_pos_val):]
-    neg_test = neg_features[(num_neg_train + num_neg_val):]
+    pos_test = pos_features[(num_pos_train + num_pos_val) :]
+    neg_test = neg_features[(num_neg_train + num_neg_val) :]
     ##########################################Answer Area 2 end#############################################
     # Store sample data and parameters in dict.
     # Descriptor class object seems to produce errors when unpickling and
@@ -225,14 +280,13 @@ def processFiles(pos_dir, neg_dir, recurse=False, output_file=False,
         "signed_gradient": signed_gradient,
         "hist_bins": hist_bins,
         "spatial_size": spatial_size,
-        "num_features": num_features
+        "num_features": num_features,
     }
 
     # Pickle to file if desired.
     if output_file:
         if output_filename is None:
-            output_filename = (datetime.now().strftime("%Y%m%d%H%M")
-                               + "_data.pkl")
+            output_filename = datetime.now().strftime("%Y%m%d%H%M") + "_data.pkl"
 
         pickle.dump(feature_data, open(output_filename, "wb"))
         print("Sample and parameter data saved to {}\n".format(output_filename))
@@ -240,22 +294,30 @@ def processFiles(pos_dir, neg_dir, recurse=False, output_file=False,
     return feature_data
 
 
-def trainSVM(filepath=None, feature_data=None, C=1,
-             loss="squared_hinge", penalty="l2", dual=False, fit_intercept=False,
-             output_file=False, output_filename=None):
+def trainSVM(
+    filepath=None,
+    feature_data=None,
+    C=1,
+    loss="squared_hinge",
+    penalty="l2",
+    dual=False,
+    fit_intercept=False,
+    output_file=False,
+    output_filename=None,
+):
     """
-        Train a classifier from feature data extracted by processFiles().
+    Train a classifier from feature data extracted by processFiles().
 
-        @param filepath (str): Path to feature data pickle file.
-        @param feature_data (dict): Feature data dict returned by processFiles().
-            NOTE: Either a file or dict may be supplied.
-        @param output_file (bool): Save classifier and parameters to file.
-        @param output_filename (str): Name of output file.
+    @param filepath (str): Path to feature data pickle file.
+    @param feature_data (dict): Feature data dict returned by processFiles().
+        NOTE: Either a file or dict may be supplied.
+    @param output_file (bool): Save classifier and parameters to file.
+    @param output_filename (str): Name of output file.
 
-        For remaining arguments, @see sklearn.svm.LinearSVC()
+    For remaining arguments, @see sklearn.svm.LinearSVC()
 
-        @return classifier_data (dict): Dict containing trained classifier and
-            relevant training/processing feature parameters.
+    @return classifier_data (dict): Dict containing trained classifier and
+        relevant training/processing feature parameters.
     """
 
     print("Loading sample data.")
@@ -280,11 +342,22 @@ def trainSVM(filepath=None, feature_data=None, C=1,
     neg_test = np.asarray(feature_data["neg_test"])
 
     train_set = np.vstack((pos_train, neg_train))
-    train_labels = np.concatenate((np.ones(pos_train.shape[0],), np.zeros(neg_train.shape[0],)))
+    train_labels = np.concatenate(
+        (
+            np.ones(
+                pos_train.shape[0],
+            ),
+            np.zeros(
+                neg_train.shape[0],
+            ),
+        )
+    )
     print("Training Phase.\n")
     # pass
     start_time = time.time()
-    classifier = svm.LinearSVC(C=C, loss=loss, penalty=penalty, dual=dual, fit_intercept=fit_intercept)
+    classifier = svm.LinearSVC(
+        C=C, loss=loss, penalty=penalty, dual=dual, fit_intercept=fit_intercept
+    )
     classifier.fit(train_set, train_labels)
     print("Validation Phase.\n")
     # pass
@@ -310,7 +383,16 @@ def trainSVM(filepath=None, feature_data=None, C=1,
     pos_train = np.vstack((pos_train, pos_val[pos_val_predicted != 1, :]))
     neg_train = np.vstack((neg_train, neg_val[neg_val_predicted == 1, :]))
     train_set = np.vstack((pos_train, neg_train))
-    train_labels = np.concatenate((np.ones(pos_train.shape[0],), np.zeros(neg_train.shape[0],)))
+    train_labels = np.concatenate(
+        (
+            np.ones(
+                pos_train.shape[0],
+            ),
+            np.zeros(
+                neg_train.shape[0],
+            ),
+        )
+    )
     classifier.fit(train_set, train_labels)
 
     print("Testing Phase.\n")
@@ -334,18 +416,24 @@ def trainSVM(filepath=None, feature_data=None, C=1,
     ##########################################Answer Area 3 end#############################################
     # Store classifier data and parameters in new dict that excludes
     # sample data from feature_data dict.
-    excludeKeys = ("pos_train", "neg_train", "pos_val", "neg_val",
-                   "pos_test", "neg_test")
-    classifier_data = {key: val for key, val in feature_data.items()
-                       if key not in excludeKeys}
+    excludeKeys = (
+        "pos_train",
+        "neg_train",
+        "pos_val",
+        "neg_val",
+        "pos_test",
+        "neg_test",
+    )
+    classifier_data = {
+        key: val for key, val in feature_data.items() if key not in excludeKeys
+    }
     ##########################################Answer Area 4 begin#############################################
     # classifier_data["classifier"] = None  # TODO: complement the assignment state with the name of your classifier
     classifier_data["classifier"] = classifier
     ##########################################Answer Area 4 end#############################################
     if output_file:
         if output_filename is None:
-            output_filename = (datetime.now().strftime("%Y%m%d%H%M")
-                               + "_classifier.pkl")
+            output_filename = datetime.now().strftime("%Y%m%d%H%M") + "_classifier.pkl"
 
         pickle.dump(classifier_data, open(output_filename, "wb"))
         print("\nSVM classifier data saved to {}".format(output_filename))
