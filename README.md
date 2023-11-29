@@ -18,7 +18,7 @@
 #### Week 02: Preliminary Ⅰ
 
 - Lecture: Pattern recognition; curve fitting; probabilities.
-- Lab: [Adult Census Income Prediction](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab02_Exercise.ipynb)
+- Lab: [Adult Census Income Prediction](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Exercises/Lab02_Exercise)
 - [Assignment Ⅰ](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Assignments/Assignment01_Preliminary)
   - Written assignment 01
   - Program assignment: curve fitting
@@ -44,7 +44,7 @@
 #### Week 06: Linear Models for Regression
 
 - Lecture: KNN; Linear basis; Maximum Likelihood and Least Squares; Bias Variance Decomposition; Bayesian linear regression; predictive distribution; maximum evidence.
-- Lab:  [LDA-based Handwritten Number Recognition](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab06_Exercise.ipynb)
+- Lab:  [LDA-based Handwritten Number Recognition](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Exercises/Lab06_Exercise)
 
 #### Week 07: Linear Models for Classification Ⅰ
 
@@ -55,7 +55,7 @@
 #### Week 08: Linear Models for Classification Ⅱ
 
 - Lecture: Perceptrons; generative Gaussian models; Bayesian Gaussian models; logistic regression; Bayesian logistic regression.
-- Lab:  [CNN-based Image Classifier for CIFAR10 Dataset](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab08_Exercise.ipynb)
+- Lab:  [CNN-based Image Classifier for CIFAR10 Dataset](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Exercises/Lab08_Exercise)
 - [Assignment Ⅲ](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Assignments/Assignment03_Distributions_2)
   - Written assignment 03
   - Program Assignment: Multi-class Logistic Regression
@@ -69,8 +69,9 @@
 #### Week 10: Neural Networks Ⅱ
 
 - Lecture: Bayesian neural networks; CNN and GAN.
-- Lab: [Vehicle Detection with HOG& SVM](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab10_Exercise.ipynb)
+- Lab: [Vehicle Detection with HOG & SVM](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Exercises/Lab10_Exercise)
 - [Assignment Ⅳ](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Assignments/Assignment04_Linear_Models)
+  - Written assignment 04
 
 #### Week 11: Sparse Kernel Machines Ⅰ
 
