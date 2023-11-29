@@ -58,9 +58,24 @@
 - Lab:  [CNN-based Image Classifier for CIFAR10 Dataset](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab08_Exercise.ipynb)
 - [Assignment Ⅲ](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Assignments/Assignment03_Distributions_2)
   - Written assignment 03
+  - Program Assignment: Multi-class Logistic Regression
 
 #### Week 09: Neural Networks Ⅰ
 
 - [Quiz 2](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Quizzes/CS329_Quiz_2.md)
-- Lecture: Feedforward network; network training; BP; Jacobian and Hessian; regularization
-- Lab: [Object Detection and Tracking](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Materials/Lab09.Object%20Detection%20and%20Tracking)
+- Lecture: Feedforward network; network training; BP; Jacobian and Hessian; regularization.
+- Lab: [Object Detection and Tracking](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Materials/Lab09_Object_Detection_and_Tracking)
+
+#### Week 10: Neural Networks Ⅱ
+
+- Lecture: Bayesian neural networks; CNN and GAN.
+- Lab: [Vehicle Detection with HOG& SVM](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab10_Exercise.ipynb)
+- [Assignment Ⅳ](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Assignments/Assignment04_Linear_Models)
+
+#### Week 11: Sparse Kernel Machines Ⅰ
+
+- [Quiz 3](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Quizzes/CS329_Quiz_3.md)
+- Lecture: Support Vector Machines.
+- Lab: [K-means Clustering-based Object Segmentation for Videos(optional)](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab11_Exercise.ipynb)
+- Midterm Exam (take-home)
+
