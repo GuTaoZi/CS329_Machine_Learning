@@ -16,6 +16,7 @@
    $p(\theta\vert\mathcal D)= \mathcal N(\theta_\text{MAP},H_\text{MAP}^{-1})$
 
 2. Prediction
+
    $$
    p(t_{N+1}\vert x_{N+1},\mathcal D) = \int p(t_{N+1},\theta\vert x_{N+1},\mathcal D) \text d \theta = \int p(t_{N+1}\vert x_{N+1},\theta)p(\theta\vert\mathcal D)\text d \theta
    $$
@@ -29,6 +30,7 @@
      $p(t_{N+1}\vert x_{N+1},\mathcal D) =p(t_{N+1}\vert x_{N+1},\mathcal \theta_\text{MAP}) =(y(x_{N+1},\theta_\text{MAP}))^{t_{N+1}}(1-y(x_{N+1},\theta_\text{MAP}))^{1-t_{N+1}}$
 
 3. Evaluation
+
    $$
    \begin{align*}
    p(\mathcal D) &= \int p(\mathcal D\vert\theta)p(\theta)\text d \theta\\
@@ -52,6 +54,7 @@ What are the gradients of $\frac{\partial y_k}{\partial w_{kj}}$, $\frac{\partia
 #### Solution 1.1
 
 1. Regression
+
    $$
    \begin{align*}
    y_k&=a_k\\
@@ -62,6 +65,7 @@ What are the gradients of $\frac{\partial y_k}{\partial w_{kj}}$, $\frac{\partia
    $$
 
 2. Classification
+
    $$
    \begin{align*}
    y_k&=\sigma(a_k)\\
@@ -85,6 +89,7 @@ $$
 $$
 
 1. Regression
+
    $$
    \begin{align*}
    E_n &= \frac 1 2 \sum\limits_{k=1}^K (y_k-t_k)^2\\
@@ -94,6 +99,7 @@ $$
    $$
 
 2. Classification
+
    $$
    \begin{align*}
    E_n &= -\sum\limits_{k=1}^K t_k\ln y_k + (1-t_k)\ln (1-y_k)\\
@@ -109,6 +115,7 @@ What's the gradients of $\frac{\partial y_k}{\partial z_i}$ for regression and c
 #### Solution 1.3
 
 1. Regression
+
    $$
    \begin{align*}
    \frac{\partial y_k}{\partial z_i} = \frac{\partial y_k}{\partial a_k}\frac{\partial a_k}{\partial z_j}\frac{\partial z_j}{\partial a_j}\frac{\partial a_j}{\partial z_i} = w_{kj}h'(a_j)w_{ji}
@@ -116,6 +123,7 @@ What's the gradients of $\frac{\partial y_k}{\partial z_i}$ for regression and c
    $$
 
 2. Classification
+
    $$
    \begin{align*}
    \frac{\partial y_k}{\partial z_i} = \frac{\partial y_k}{\partial a_k}\frac{\partial a_k}{\partial z_j}\frac{\partial z_j}{\partial a_j}\frac{\partial a_j}{\partial z_i} = y_k(1-y_k)w_{kj}h'(a_j)w_{ji}
@@ -135,6 +143,7 @@ What are the MAP solutions of $w,p(w\vert\mathcal D)$ for both cases?
 By iterating $w^\text {new}=w^\text {old}-A^{-1}\nabla E(w)$, we obtain $w_\text{MAP}$.
 
 1. Regression
+
    $$
    \begin{align*}
    E(w) &= -\ln p(w\vert \mathbf t) = \frac\alpha 2 w^\text Tw +\frac\beta 2 \sum\limits_{n=1}^N [y(x_n,w)-t_n]^2 + C\\
@@ -145,6 +154,7 @@ By iterating $w^\text {new}=w^\text {old}-A^{-1}\nabla E(w)$, we obtain $w_\text
    $$
 
 2. Classification
+
    $$
    \begin{align*}
    E(w) &= -\ln p(w\vert \mathbf t) = \frac\alpha 2 w^\text Tw -\sum\limits_{n=1}^N [t_n\ln y_n + (1-t_n)\ln(1-y_n)]\\
@@ -165,6 +175,7 @@ What are the predictive distributions of a new data input $x_{N+1}$ and label $t
 #### Solution 2.2
 
 1. Regression
+
    $$
    p(t_{N+1}\vert x_{N+1}, \mathcal{D}) = \mathcal N(y(x,w_\text{MAP}),\beta^{-1}+g^\text T Ag)
    $$
