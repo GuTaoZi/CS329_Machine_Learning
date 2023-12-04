@@ -3,8 +3,15 @@ import matplotlib.pyplot as plt
 import cv2
 
 
-def slidingWindow(image_size, init_size=(64, 64), x_overlap=0.5, y_step=0.05,
-                  x_range=(0, 1), y_range=(0, 1), scale=1.5):
+def slidingWindow(
+    image_size,
+    init_size=(64, 64),
+    x_overlap=0.5,
+    y_step=0.05,
+    x_range=(0, 1),
+    y_range=(0, 1),
+    scale=1.5,
+):
     """
     Run a sliding window across an input image and return a list of the
     coordinates of each window.
@@ -67,8 +74,12 @@ def display_windows(img: str, color=(0, 0, 255), thick=6):
     random_color = False
     # Iterate through windows
     for rect in rects:
-        if color == 'random' or random_color:
-            color = (np.random.randint(0, 255), np.random.randint(0, 255), np.random.randint(0, 255))
+        if color == "random" or random_color:
+            color = (
+                np.random.randint(0, 255),
+                np.random.randint(0, 255),
+                np.random.randint(0, 255),
+            )
             random_color = True
         # Draw a rectangle given windows coordinates
         cv2.rectangle(image, rect[0], rect[1], color, thick)

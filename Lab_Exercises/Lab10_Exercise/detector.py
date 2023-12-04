@@ -157,7 +157,7 @@ class Detector:
         current_heatmap = np.zeros((frame.shape[:2]), dtype=np.uint8)
         summed_heatmap = np.zeros_like(current_heatmap, dtype=np.uint8)
         last_N_frames = deque(maxlen=num_frames)
-        heatmap_labels = np.zeros_like(current_heatmap, dtype=np.int)
+        heatmap_labels = np.zeros_like(current_heatmap, dtype=int)
 
         # Weights for the frames in last_N_frames for producing summed_heatmap.
         # Recent frames are weighted more heavily than older frames.
