@@ -2,7 +2,7 @@
 Author: GuTaoZi gutao.official@gmail.com
 Date: 2023-11-29 14:05:58
 LastEditors: GuTaoZi gutao.official@gmail.com
-LastEditTime: 2023-11-29 15:58:04
+LastEditTime: 2023-12-06 14:51:01
 FilePath: \Lab10_Exercise\experiment.py
 Description: 
 
@@ -11,6 +11,7 @@ Copyright (c) 2023 by ${git_name_email}, All Rights Reserved.
 import cv2
 from train import processFiles, trainSVM
 from detector import Detector
+import pickle
 
 # Replace these with the directories containing your
 # positive and negative sample images, respectively.
@@ -69,14 +70,18 @@ def experiment2():
         spatial_size=(20, 20),
     )
 
-    classifier_data = trainSVM(feature_data=feature_data, C=1000)
+    # classifier_data = trainSVM(
+    #     feature_data=feature_data, C=1000, output_file=True, output_filename="model.pkl"
+    # )
+    with open("model.pkl",'+rb') as file:
+        classifier_data = pickle.load(file=file)
 
     detector = Detector(
         init_size=(90, 90),
         x_overlap=0.5,
         y_step=0.01,
-        y_range=(0.55, 0.89),
-        scale=1.3,
+        y_range=(0.5, 0.9),
+        scale=0.6,
     )
 
     detector.loadClassifier(classifier_data=classifier_data)

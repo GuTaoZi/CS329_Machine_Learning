@@ -78,5 +78,9 @@
 - [Quiz 3](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Quizzes/CS329_Quiz_3.md)
 - Lecture: Support Vector Machines.
 - Lab: [K-means Clustering-based Object Segmentation for Videos(optional)](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab11_Exercise.ipynb)
-- Midterm Exam (take-home)
 
+#### Week 12: Sparse Kernel Machines Ⅱ
+
+- Lecture: SVM for classification and regression; RVM for classification and regression.
+- Lab: [Gaussian Mixture Model-based Object Segmentation(optional)](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab12_Exercise.ipynb)
+- [Project Proposal](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Project)
