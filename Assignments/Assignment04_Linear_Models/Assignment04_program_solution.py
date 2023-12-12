@@ -6,6 +6,7 @@ class Layer:
     """
     The template class of network layers. You don't need to modify this.
     """
+
     def get_params(self):
         return
 
@@ -26,7 +27,9 @@ class Layer:
 
 
 class Conv2d(Layer):
-    def __init__(self, in_channels, out_channels, kernel_size=(3, 3), stride=1, padding=(0, 0)):
+    def __init__(
+        self, in_channels, out_channels, kernel_size=(3, 3), stride=1, padding=(0, 0)
+    ):
         """
         Similar to PyTorch Conv2d. Here bias=True, and padding_mode='zeros'.
         """
@@ -37,8 +40,10 @@ class Conv2d(Layer):
         self.padding = padding
 
         # init params
-        self.w = np.random.randn(out_channels, in_channels,
-                                 kernel_size[0], kernel_size[1]) * 0.1
+        self.w = (
+            np.random.randn(out_channels, in_channels, kernel_size[0], kernel_size[1])
+            * 0.1
+        )
         self.b = np.random.randn(out_channels) * 0.1
         self.dw = np.zeros_like(self.w)
         self.db = np.zeros_like(self.b)
@@ -66,11 +71,9 @@ class Conv2d(Layer):
         """
         Compute the height and the width of the output tensor.
         """
-        # complete your code here
-        h_out = (h_in-h_f+2*h_p)/stride + 1
-        w_out = (w_in-w_f+2*w_p)/stride + 1
-
-        return h_out, w_out
+        return (h_in - h_f + 2 * h_p) // stride + 1, (
+            w_in - w_f + 2 * w_p
+        ) // stride + 1
 
     def forward(self, x):
         """
@@ -80,11 +83,11 @@ class Conv2d(Layer):
         h_f, w_f = self.kernel_size
         h_p, w_p = self.padding
         h_out, w_out = self.compute_output_dims(
-            h_in, w_in, h_f, w_f, h_p, w_p, self.stride)
+            h_in, w_in, h_f, w_f, h_p, w_p, self.stride
+        )
 
         # padding
-        x_pad = np.pad(array=x, pad_width=(
-            (0, 0), (0, 0), (h_p, h_p), (w_p, w_p)))
+        x_pad = np.pad(array=x, pad_width=((0, 0), (0, 0), (h_p, h_p), (w_p, w_p)))
 
         # 2D convolution
         out = np.zeros((batch_size, self.c_out, h_out, w_out))
@@ -96,9 +99,8 @@ class Conv2d(Layer):
                 w_end = w_start + w_f
 
                 out[:, :, i, j] = np.sum(
-                    self.w * x_pad[:, np.newaxis, :,
-                                   h_start:h_end, w_start:w_end],
-                    axis=(2, 3, 4)
+                    self.w * x_pad[:, np.newaxis, :, h_start:h_end, w_start:w_end],
+                    axis=(2, 3, 4),
                 )
 
         # bias
@@ -120,29 +122,34 @@ class Conv2d(Layer):
         h_p, w_p = self.padding
 
         db = da.sum((0, 2, 3)) / batch_size
-        
+
         dw = np.zeros_like(self.w)  # (c_out, c_in, h_f, w_f)
         out = np.zeros_like(self.x_pad)
-        
+
         for i in range(h_out):
             h_start = i * self.stride
             h_end = h_start + h_f
             for j in range(w_out):
                 w_start = j * self.stride
                 w_end = w_start + w_f
- 
+
                 dw += np.sum(
-                    da[:, :, np.newaxis, i:i+1, j:j+1]
+                    da[:, :, np.newaxis, i : i + 1, j : j + 1]
                     * self.x_pad[:, np.newaxis, :, h_start:h_end, w_start:w_end],
-                    axis=0)
+                    axis=0,
+                )
 
                 # complete your code here
-                out[:, :, h_start:h_end, w_start:w_end] += 
+                out[:, :, h_start:h_end, w_start:w_end] += np.sum(
+                    da[:, :, i, j][:, :, np.newaxis, np.newaxis, np.newaxis]
+                    * self.w[np.newaxis, :, :, :, :],
+                    axis=1,
+                )
 
         dw /= batch_size
-        
+
         # reverse padding
-        out = out[:, :, h_p:h_p + self.h_in, w_p:w_p + self.w_in]
+        out = out[:, :, h_p : h_p + self.h_in, w_p : w_p + self.w_in]
 
         self.dw += dw
         self.db += db
@@ -163,11 +170,7 @@ class MaxPool2d(Layer):
         """
         Compute the height and the width of the output tensor.
         """
-        # complete your code here
-        h_out = (h_in-h_f)/stride + 1
-        w_out = (w_in-w_f)/stride + 1
-
-        return h_out, w_out
+        return (h_in - h_f) // stride + 1, (w_in - w_f) // stride + 1
 
     def forward(self, x):
         """
@@ -175,15 +178,13 @@ class MaxPool2d(Layer):
         """
         batch_size, c_in, h_in, w_in = x.shape
         h_f, w_f = self.kernel_size
-        h_out, w_out = self.compute_output_dims(
-            h_in, w_in, h_f, w_f, self.stride)
-        
+        h_out, w_out = self.compute_output_dims(h_in, w_in, h_f, w_f, self.stride)
+
         # cache for backpropagation
-        self.max_indices = np.zeros(
-            (batch_size, c_in, h_out, w_out), dtype=int)
+        self.max_indices = np.zeros((batch_size, c_in, h_out, w_out), dtype=int)
         self.h_in = h_in
         self.w_in = w_in
-        
+
         # max pooling
         out = np.zeros((batch_size, c_in, h_out, w_out))
         for i in range(h_out):
@@ -192,12 +193,14 @@ class MaxPool2d(Layer):
             for j in range(w_out):
                 w_start = j * self.stride
                 w_end = w_start + w_f
-                
+
                 x_slice = x[:, :, h_start:h_end, w_start:w_end].reshape(
-                    batch_size, c_in, -1)
+                    batch_size, c_in, -1
+                )
                 idx = np.argmax(x_slice, axis=-1)
                 out[:, :, i, j] = np.take_along_axis(
-                    x_slice, idx[:, :, np.newaxis], -1).squeeze(-1)
+                    x_slice, idx[:, :, np.newaxis], -1
+                ).squeeze(-1)
                 self.max_indices[:, :, i, j] = idx
 
         return out
@@ -228,6 +231,7 @@ class Flatten(Layer):
     """
     Flatten the array to one dimension.
     """
+
     def __init__(self):
         self.shape = None
 
@@ -244,6 +248,7 @@ class FullyConnected(Layer):
     """
     Similar to PyTorch Linear.
     """
+
     def __init__(self, in_features, out_features):
         # init params
         self.w = np.random.randn(out_features, in_features) * 0.1
@@ -271,16 +276,16 @@ class FullyConnected(Layer):
         x: 2D array (batch_size, in_features)
         """
         self.x = x.copy()
-        # complete your code here
-        
-        return out
+        return x @ self.w.T + self.b
 
     def backward(self, da):
         """
         da: 2D array (batch_size, out_features)
         """
-        # complete your code here
-
+        bs = da.shape[0]
+        out = da @ self.w
+        self.dw += da.T @ self.x / bs
+        self.db += np.sum(da, axis=0) / bs
         return out
 
 
@@ -288,6 +293,7 @@ class LeakyReLU(Layer):
     """
     Similar to PyTorch LeakyReLU.
     """
+
     def __init__(self, negative_slope=0.01):
         self.negative_slope = negative_slope
         self.mask = None
@@ -309,8 +315,8 @@ class Softmax(Layer):
         """
         # complete your code here
         # remember to subtract max before np.exp() to avoid overflow.
-        exp_x = np.exp(x - np.max(x, axis=1, keepdims=True))
-        out = exp_x / np.sum(exp_x, axis=1, keepdims=True)
+        x -= np.max(x, axis=1, keepdims=True)
+        out = np.exp(x) / np.sum(np.exp(x), axis=1, keepdims=True)
         return out
 
     def backward(self, da):
@@ -321,6 +327,7 @@ class SequentialModel(Layer):
     """
     Final sequential model.
     """
+
     def __init__(self, layers: List[Layer]):
         self.layers = layers
 
@@ -362,14 +369,17 @@ class AdamOptimizer:
         for idx, layer in enumerate(layers):
             params = layer.get_params()
             if params is not None:
-                w, b, = params
+                (
+                    w,
+                    b,
+                ) = params
                 dw, db = layer.get_grads()
 
                 dw = self.clip_grad_norm(dw)
                 db = self.clip_grad_norm(db)
 
-                w_key = f'w{idx}'
-                b_key = f'b{idx}'
+                w_key = f"w{idx}"
+                b_key = f"b{idx}"
 
                 if w_key not in self.m:
                     self.m[w_key] = np.zeros_like(w)
@@ -377,20 +387,18 @@ class AdamOptimizer:
                     self.m[b_key] = np.zeros_like(b)
                     self.v[b_key] = np.zeros_like(b)
 
-                self.m[w_key] = self.beta1 * \
-                    self.m[w_key] + (1 - self.beta1) * dw
-                self.m[b_key] = self.beta1 * \
-                    self.m[b_key] + (1 - self.beta1) * db
+                self.m[w_key] = self.beta1 * self.m[w_key] + (1 - self.beta1) * dw
+                self.m[b_key] = self.beta1 * self.m[b_key] + (1 - self.beta1) * db
 
-                self.v[w_key] = self.beta2 * self.v[w_key] + \
-                    (1 - self.beta2) * np.square(dw)
-                self.v[b_key] = self.beta2 * self.v[b_key] + \
-                    (1 - self.beta2) * np.square(db)
+                self.v[w_key] = self.beta2 * self.v[w_key] + (
+                    1 - self.beta2
+                ) * np.square(dw)
+                self.v[b_key] = self.beta2 * self.v[b_key] + (
+                    1 - self.beta2
+                ) * np.square(db)
 
-                dw = self.lr * self.m[w_key] / \
-                    (np.sqrt(self.v[w_key]) + self.eps)
-                db = self.lr * self.m[b_key] / \
-                    (np.sqrt(self.v[b_key]) + self.eps)
+                dw = self.lr * self.m[w_key] / (np.sqrt(self.v[w_key]) + self.eps)
+                db = self.lr * self.m[b_key] / (np.sqrt(self.v[b_key]) + self.eps)
 
                 w -= dw
                 b -= db
@@ -417,9 +425,13 @@ class DataLoader:
         return self.x_train[idx], self.y_train[idx]
 
 
-def train(model: SequentialModel, epochs: int,
-          train_loader: DataLoader, optimizer: AdamOptimizer,
-          test_loader: DataLoader = None):
+def train(
+    model: SequentialModel,
+    epochs: int,
+    train_loader: DataLoader,
+    optimizer: AdamOptimizer,
+    test_loader: DataLoader = None,
+):
     for epoch in range(epochs):
         for idx in range(train_loader.length):
             x_batch, y_batch = train_loader.get_batch(idx)
@@ -454,7 +466,7 @@ def main():
     seed = int(input())
     # set random seed for initialization of weights and biases.
     np.random.seed(seed)
-    
+
     X_train = np.empty((num_train, h, w), dtype=float)
     y_train = np.empty(num_train, dtype=int)
     X_test = np.empty((num_test, h, w), dtype=float)
@@ -470,29 +482,80 @@ def main():
 
     X_train = X_train[:, np.newaxis, :, :]
     X_test = X_test[:, np.newaxis, :, :]
-    
+
     # one-hot encoding for training.
     one_hot_train = np.zeros((len(y_train), num_classes), dtype=float)
     one_hot_train[np.arange(len(y_train)), y_train] = 1
-    
+
     train_loader = DataLoader(X_train, one_hot_train, 200)
     test_loader = DataLoader(X_test, y_test, 100)
-    
+
     optimizer = AdamOptimizer(lr=0.02)
-    
-    model = SequentialModel([
-        Conv2d(1, 3, (3, 3), stride=1, padding=(1, 1)),
-        LeakyReLU(),
-        MaxPool2d((2, 2), 2),
-        Flatten(),
-        # add a fully connected layer here
-        # complete your code here
-        Softmax()
-    ])
-    
+
+    model = SequentialModel(
+        [
+            Conv2d(1, 3, (3, 3), stride=1, padding=(1, 1)),
+            LeakyReLU(),
+            MaxPool2d((2, 2), 2),
+            Flatten(),
+            # add a fully connected layer here
+            # complete your code here
+            FullyConnected(588, 10),
+            Softmax(),
+        ]
+    )
+
     model = train(model, 5, train_loader, optimizer, test_loader)
 
 
-if __name__ == '__main__':
-    main()
+def main_filein():
+    with open("A4_input.in", "r") as file:
+        num_train, num_test = map(int, file.readline().split())
+        h, w, num_classes = map(int, file.readline().split())
+        seed = int(file.readline())
 
+        np.random.seed(seed)
+
+        X_train = np.empty((num_train, h, w), dtype=float)
+        y_train = np.empty(num_train, dtype=int)
+        X_test = np.empty((num_test, h, w), dtype=float)
+        y_test = np.empty(num_test, dtype=int)
+
+        for b in range(num_train):
+            img = [list(map(int, file.readline().split())) for _ in range(h)]
+            X_train[b] = np.array(img, dtype=int) / 255
+            y_train[b] = int(file.readline())
+
+        for b in range(num_test):
+            img = [list(map(int, file.readline().split())) for _ in range(h)]
+            X_test[b] = np.array(img, dtype=int) / 255
+            y_test[b] = int(file.readline())
+
+    X_train = X_train[:, np.newaxis, :, :]
+    X_test = X_test[:, np.newaxis, :, :]
+
+    one_hot_train = np.zeros((len(y_train), num_classes), dtype=float)
+    one_hot_train[np.arange(len(y_train)), y_train] = 1
+
+    train_loader = DataLoader(X_train, one_hot_train, 200)
+    test_loader = DataLoader(X_test, y_test, 100)
+
+    optimizer = AdamOptimizer(lr=0.02)
+
+    model = SequentialModel(
+        [
+            Conv2d(1, 3, (3, 3), stride=1, padding=(1, 1)),
+            LeakyReLU(),
+            MaxPool2d((2, 2), 2),
+            Flatten(),
+            FullyConnected(14 * 14 * 3, 10),
+            Softmax(),
+        ]
+    )
+
+    model = train(model, 5, train_loader, optimizer, test_loader)
+
+
+if __name__ == "__main__":
+    main_filein()
+    # main()
