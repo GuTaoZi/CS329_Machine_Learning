@@ -10,12 +10,12 @@
 
 [GuTao's ML Notes](https://gutaozi.github.io/2023/09/12/CS329_Notes/)
 
-#### Week 01: Introduction
+### Week 01: Introduction
 
 - Lecture: Course information and grading policy; AI; optimization; machine learning.
 - Lab: [Environment configuration](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Materials/Lab01_Introduction)
 
-#### Week 02: Preliminary Ⅰ
+### Week 02: Preliminary Ⅰ
 
 - Lecture: Pattern recognition; curve fitting; probabilities.
 - Lab: [Adult Census Income Prediction](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Exercises/Lab02_Exercise)
@@ -23,17 +23,17 @@
   - Written assignment 01
   - Program assignment: curve fitting
 
-#### Week 03: Preliminary Ⅱ
+### Week 03: Preliminary Ⅱ
 
 - Lecture: Inference; decision; entropy and information.
 - Lab: [Naive-Bayes-based Spam Email Classification](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab03_Exercise.ipynb)
 
-#### Week 04: Distributions Ⅰ
+### Week 04: Distributions Ⅰ
 
 - Lecture: Binomial distributions; multinomial distributions; Gaussian distributions.
 - Lab: [Linear Regression-based California Housing Analysis](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab04_Exercise.ipynb)
 
-#### Week 05: Distributions Ⅱ
+### Week 05: Distributions Ⅱ
 
 - Lecture: Gaussian distributions; exponential family.
 - Lab: [Decision Tree/Ensemble Learning-based Iris Classification](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab05_Exercise.ipynb)
@@ -41,14 +41,14 @@
   - Written assignment 02
   - Program assignment: KNN breast cancer prediction
 
-#### Week 06: Linear Models for Regression
+### Week 06: Linear Models for Regression
 
 - Lecture: KNN; Linear basis; Maximum Likelihood and Least Squares; Bias Variance Decomposition; Bayesian linear regression; predictive distribution; maximum evidence.
 - Lab:  [LDA-based Handwritten Number Recognition](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Exercises/Lab06_Exercise)
 
-#### Week 07: Linear Models for Classification Ⅰ
+### Week 07: Linear Models for Classification Ⅰ
 
-- [Quiz 1](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Quizzes/CS329_Quiz_1.md)
+- [Quiz 1](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Exams & Quizzes/CS329_Quiz_1.md)
 - Lecture: Linear Classification; Discriminant Function; Fisher.
 - Lab: [MLP-based Handwritten Number Recognition(optional)](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab07_Exercise.ipynb)
 
@@ -62,7 +62,7 @@
 
 #### Week 09: Neural Networks Ⅰ
 
-- [Quiz 2](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Quizzes/CS329_Quiz_2.md)
+- [Quiz 2](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Exams & Quizzes/CS329_Quiz_2.md)
 - Lecture: Feedforward network; network training; BP; Jacobian and Hessian; regularization.
 - Lab: [Object Detection and Tracking](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Materials/Lab09_Object_Detection_and_Tracking)
 
@@ -75,7 +75,7 @@
 
 #### Week 11: Sparse Kernel Machines Ⅰ
 
-- [Quiz 3](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Quizzes/CS329_Quiz_3.md)
+- [Quiz 3](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Exams & Quizzes/CS329_Quiz_3.md)
 - Lecture: Support Vector Machines.
 - Lab: [K-means Clustering-based Object Segmentation for Videos(optional)](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab11_Exercise.ipynb)
 
@@ -84,3 +84,39 @@
 - Lecture: SVM for classification and regression; RVM for classification and regression.
 - Lab: [Gaussian Mixture Model-based Object Segmentation(optional)](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab12_Exercise.ipynb)
 - [Project Proposal](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Project)
+
+#### Week 13: Mixture Models and EM Learning 
+
+- [Midterm Exam (take-home)](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Exams & Quizzes/CS329_Midterm_Questions_2023F_Formatted.pdf)
+- Lecture: K-means; GMM; EM.
+- Lab: [MDP-based Shortest Path Solver with Collision Avoidance](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Exercises/Lab13_Exercise)
+
+#### Week 14: Sequential Data
+
+- Lecture: HMM;EM for HMM; forward-backward.
+- Lab: [Q-learning with taxi v3🚕](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Exercises/Lab14_Exercise.ipynb)
+
+### How to Contribute
+
+Feel free to contribute to this repo! Your contributions help improve the learning experience for everyone.
+
+Here's how you can contribute:
+
+#### Fixing Typos and Errors
+
+If you notice any typos or errors in the course materials, you can submit corrections by following these steps:
+
+1. Fork this repo to your GitHub account.
+
+2. Make the corrections in your forked repository.
+
+3. Submit a pull request to the main repository. Clearly describe the changes and reference any related issues.
+
+
+Or you can simply raise an issue at this repo, your issues and PRs will be handled very soon.
+
+#### Participating in Discussions
+
+Engage in discussions on the [course repository's issues](https://github.com/GuTaoZi/CS329_Machine_Learning/issues) to share your insights, ask questions, or provide assistance to others.
+
+Your contributions are highly valued, and they play a key role in enhancing the learning experience for the entire Machine Learning community. Thank you for your collaboration!
