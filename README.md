@@ -48,7 +48,7 @@
 
 ### Week 07: Linear Models for Classification Ⅰ
 
-- [Quiz 1](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Exams & Quizzes/CS329_Quiz_1.md)
+- [Quiz 1](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Exams%20%26%20Quizzes/CS329_Quiz_1.md)
 - Lecture: Linear Classification; Discriminant Function; Fisher.
 - Lab: [MLP-based Handwritten Number Recognition(optional)](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab07_Exercise.ipynb)
 
@@ -62,7 +62,7 @@
 
 #### Week 09: Neural Networks Ⅰ
 
-- [Quiz 2](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Exams & Quizzes/CS329_Quiz_2.md)
+- [Quiz 2](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Exams%20%26%20Quizzes/CS329_Quiz_2.md)
 - Lecture: Feedforward network; network training; BP; Jacobian and Hessian; regularization.
 - Lab: [Object Detection and Tracking](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Materials/Lab09_Object_Detection_and_Tracking)
 
@@ -75,7 +75,7 @@
 
 #### Week 11: Sparse Kernel Machines Ⅰ
 
-- [Quiz 3](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Exams & Quizzes/CS329_Quiz_3.md)
+- [Quiz 3](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Exams%20%26%20Quizzes/CS329_Quiz_3.md)
 - Lecture: Support Vector Machines.
 - Lab: [K-means Clustering-based Object Segmentation for Videos(optional)](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Lab_Exercises/Lab11_Exercise.ipynb)
 
@@ -87,7 +87,7 @@
 
 #### Week 13: Mixture Models and EM Learning 
 
-- [Midterm Exam (take-home)](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Exams & Quizzes/CS329_Midterm_Questions_2023F_Formatted.pdf)
+- [Midterm Exam (take-home)](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Exams%20%26%20Quizzes/CS329_Midterm_Questions_2023F_Formatted.pdf)
 - Lecture: K-means; GMM; EM.
 - Lab: [MDP-based Shortest Path Solver with Collision Avoidance](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Exercises/Lab13_Exercise)
 
