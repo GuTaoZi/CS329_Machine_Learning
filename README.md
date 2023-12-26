@@ -72,6 +72,7 @@
 - Lab: [Vehicle Detection with HOG & SVM](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Exercises/Lab10_Exercise)
 - [Assignment Ⅳ](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Assignments/Assignment04_Linear_Models)
   - Written assignment 04
+  - Program Assignment: CNN for MNIST Classification
 
 ### Week 11: Sparse Kernel Machines Ⅰ
 
@@ -95,6 +96,9 @@
 
 - Lecture: HMM;EM for HMM; forward-backward.
 - Lab: [Q-learning with taxi v3🚕](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Exercises/Lab14_Exercise.ipynb)
+- [Assignment Ⅴ](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Assignments/Assignment05_Neural_Networks)
+  - Written assignment 05
+
 
 ### Week 15: 
 
