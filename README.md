@@ -100,11 +100,22 @@
   - Written assignment 05
 
 
-### Week 15: 
+### Week 15: Markov Decision Process Ⅰ
 
 - [Quiz 4](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Exams%20%26%20Quizzes/CS329_Quiz_4.md)
-- Lecture: 
+- Lecture: Dynamic programming; MDP.
 - Lab: [RNN-based Name Classification](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Lab_Materials/Lab15_RNN)
+
+### Week 16: Markov Decision Process Ⅱ
+
+- Lecture: MDP; value iteration; policy iteration.
+- Lab: Review
+
+### Week 17-18: Exam and Project
+
+- [Final Exam](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Exams%20%26%20Quizzes/)
+- [Project Report](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Project)
+- [Popular Science Report](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Project)
 
 ### How to Contribute
 
