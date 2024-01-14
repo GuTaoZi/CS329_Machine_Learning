@@ -1,0 +1,11 @@
+tt100k_2021/
+├── images/
+│   ├── other/
+│   ├── train/
+│   ├── test/
+│   └── val/
+└── labels/
+    ├── other/
+    ├── train/
+    ├── test/
+    └── val/
