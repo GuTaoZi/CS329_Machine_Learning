@@ -1,3 +1,6 @@
 [submodule "Project"]
 	path = Project
 	url = https://github.com/Jayfeather233/ML-Project
+[submodule "Official_Course_Repo"]
+	path = Official_Course_Repo
+	url = https://github.com/SUSTech-ML-Course/Machine-Learning-Course.git
