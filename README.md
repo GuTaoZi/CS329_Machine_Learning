@@ -114,8 +114,8 @@
 ### Week 17-18: Exam and Project
 
 - [Final Exam](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Exams%20%26%20Quizzes/)
-- [Project Report](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Project)
-- [Popular Science Report](https://github.com/GuTaoZi/CS329_Machine_Learning/tree/main/Project)
+- [Project Report](https://github.com/Jayfeather233/ML-Project/blob/main/doc/Traffic-Sign%20Detection%20and%20Recognition(final%20report).pdf)
+- [Popular Science Report](https://github.com/GuTaoZi/CS329_Machine_Learning/blob/main/Assignments/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%A7%91%E6%99%AE_%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9C%A8%E5%8A%A8%E4%BD%9C%E6%8D%95%E6%8D%89%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8.pdf)
 
 ### How to Contribute
 
